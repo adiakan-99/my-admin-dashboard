@@ -10,8 +10,6 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     const listing: Listing | undefined = listings.find((l) => l.id === requestBody.id);
 
-    console.log(listings);
-
     if (listing) {
         listings.map((l) => {
             if (l.id === requestBody.id) {
@@ -19,8 +17,6 @@ export async function POST(request: Request): Promise<NextResponse> {
                 l.description = requestBody.description;
             }
         });
-
-        console.log(listings);
 
         return NextResponse.json({ status: 200, success: true, message: "Listing edited!" })
     } else {
