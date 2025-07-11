@@ -33,7 +33,7 @@ export default function DashboardClient(props: DashboardClientProps) {
             setFeedback({ message: "Please login to access the dashboard", type: "error" });
             router.push(`/login?redirect=/dashboard?page=${props.currentPage}`)
         }
-    }, []);
+    }, [setFeedback, props.currentPage, router]);
 
     useEffect(() => {
         let enterTimer: string | number | NodeJS.Timeout | undefined, visibleTimer: string | number | NodeJS.Timeout | undefined, exitTimer: string | number | NodeJS.Timeout | undefined;
@@ -56,7 +56,7 @@ export default function DashboardClient(props: DashboardClientProps) {
             clearTimeout(exitTimer);
         }
 
-    }, [feedback.message]);
+    }, [feedback.message, setFeedback]);
 
     console.log(feedbackAnimation);
 

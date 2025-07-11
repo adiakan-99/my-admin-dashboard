@@ -18,7 +18,7 @@ const LoginPage = () => {
         if (isAuthenticated) {
             router.push("/dashboard");
         }
-    }, []);
+    }, [router]);
 
     React.useEffect(() => {
         if (feedback.message) {
@@ -26,7 +26,7 @@ const LoginPage = () => {
 
             return () => clearTimeout(timer);
         }
-    }, [feedback.message])
+    }, [feedback.message, setFeedback])
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
