@@ -1,7 +1,7 @@
 import { listings, Listing } from "@/lib/listings";
 import DashboardClient from "@/components/DashboardClient";
 
-export default async function DashboardPage({ searchParams }: { searchParams: { page?: string } }) {
+export default async function DashboardPage({ searchParams }: { searchParams: { page?: string | undefined } }) {
     const search = await searchParams;
     const page = parseInt(search.page || "1", 10) || 1;
     const limit = 5;
